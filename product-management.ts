@@ -23,12 +23,12 @@ export class ProductManagement {
     let index = this.findProductById(id);
     ProductManagement.products[index] = product;
   }
-  findProductByName(name: string): Product[] | [] {
-    let product = [];
+  findProductByName(name: string): Product | undefined {
+    let product = undefined;
     let products = ProductManagement.products;
     for (const item of products) {
       if (item.name == name) {
-        product.push(item);
+        product = item;
       }
     }
     return product;

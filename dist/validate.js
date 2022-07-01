@@ -24,7 +24,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Validate = void 0;
+const product_management_1 = require("./product-management");
 const readline = __importStar(require("readline-sync"));
+const productManagement = new product_management_1.ProductManagement();
 class Validate {
     inputName() {
         let name = "";
@@ -37,10 +39,33 @@ class Validate {
                 console.log("Tên ít nhất 6 ký tự");
             }
             else {
-                isValidNmae = true;
+                let nameProduct = productManagement.findProductByName(name);
+                if (nameProduct) {
+                    console.log("tên đã tồn tại");
+                    isValidNmae = false;
+                }
+                else {
+                    isValidNmae = true;
+                }
             }
         } while (!isValidNmae);
         return name;
+    }
+    inputDesc() {
+        let description = "";
+        let isValid = true;
+        do {
+            description = readline.question("Nhap mo ta san pham:");
+            let regexForEmail = /^[0-9a-zA-Z]{20,}$/g;
+            if (!regexForEmail.test(description)) {
+                isValid = false;
+                console.log("Tên ít nhất 20 ký tự");
+            }
+            else {
+                isValid = true;
+            }
+        } while (!isValid);
+        return description;
     }
     checkQuantity() {
         let number;
@@ -50,6 +75,9 @@ class Validate {
             if (number <= 0) {
                 isValidNumber = false;
                 console.log("Tên phải là số dương");
+            }
+            else if (typeof number == "string") {
+                console.log("Tên phải là số");
             }
             else {
                 isValidNumber = true;
@@ -65,6 +93,9 @@ class Validate {
             if (number <= 0) {
                 isValidNumber = false;
                 console.log("Tên phải là số dương");
+            }
+            else if (typeof number == "string") {
+                console.log("Tên phải là số");
             }
             else {
                 isValidNumber = true;

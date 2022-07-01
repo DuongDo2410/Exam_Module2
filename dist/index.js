@@ -86,7 +86,7 @@ function menu() {
 function inputFindProductByName() {
     let name = readline.question("Nhap ten san pham muon tim kiem:");
     let product = productManagement.findProductByName(name);
-    if (product.length == 0) {
+    if (product) {
         console.log("Không tìm thấy sản phẩm");
     }
     else {
@@ -120,7 +120,7 @@ function inputUpdate() {
         let price = validate.checkPrice();
         let quantity = validate.checkQuantity();
         let date = new Date();
-        let description = readline.question("Nhap mo ta san pham:");
+        let description = validate.inputDesc();
         let productUpdate = new product_1.Product(id, name, category, price, quantity, date, description);
         productManagement.update(id, productUpdate);
         console.log("Cập nhật thành công");
@@ -134,7 +134,7 @@ function inputCreate() {
     let price = validate.checkPrice();
     let quantity = validate.checkQuantity();
     let date = new Date();
-    let description = readline.question("Nhap mo ta san pham:");
+    let description = validate.inputDesc();
     let product = new product_1.Product(id, name, category, price, quantity, date, description);
     productManagement.create(product);
     console.log("Thêm thành công");

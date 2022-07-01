@@ -18,11 +18,11 @@ class ProductManagement {
         ProductManagement.products[index] = product;
     }
     findProductByName(name) {
-        let product = [];
+        let product = undefined;
         let products = ProductManagement.products;
         for (const item of products) {
             if (item.name == name) {
-                product.push(item);
+                product = item;
             }
         }
         return product;
