@@ -1,0 +1,27 @@
+{
+  "name": "Exam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DuongDo2410/Exam_Module2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DuongDo2410/Exam_Module2/issues"
+  },
+  "homepage": "https://github.com/DuongDo2410/Exam_Module2#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/readline-sync": "^1.4.4"
+  }
+}
